@@ -1,0 +1,6 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.pythonPath": "/Users/enriqueivan/Library/Caches/pypoetry/virtualenvs/recipe-box-ptcf1Up5-py3.8/bin/python",
+    "python.linting.enabled": true
+}
