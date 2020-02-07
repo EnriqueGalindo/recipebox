@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import index_view, recipes_view, author_view
+from .views import index_view, recipes_view, author_view, add_recipe_view
 from recipebox.models import Author, Recipe
 
 admin.site.register(Author)
@@ -23,7 +23,8 @@ admin.site.register(Recipe)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index_view),
+    path('', index_view, name="home"),
+    path('add_recipe/', add_recipe_view),
     path('recipes/<int:id>', recipes_view),
     path('author/<int:id>', author_view)
 

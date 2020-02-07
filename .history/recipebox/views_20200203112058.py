@@ -1,1 +1,0 @@
-import Recipe from recipebox.models
