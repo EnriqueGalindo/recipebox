@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Recipe, Author
-from .forms import RecipeAddForm
+from .forms import RecipeAddForm, AuthorAddForm
 
 
 def index_view(request):
@@ -34,7 +34,21 @@ def add_recipe_view(request):
                 instructions=data["instructions"]
                 )
             return redirect(reverse("home"))
-    
     form = RecipeAddForm()
+
+
+def add_author_view(request):
+    html = "genericForm.html"
+
+    if request.method == "POST":
+        form = AuthorAddForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            Author.objects.create(
+                name=data["name"],
+                bio=data["bio"]
+            )
+            return redirect(reverse("home"))
+    form = AuthorAddForm()
 
     return render(request, html, {'form': form})
