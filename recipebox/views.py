@@ -40,7 +40,7 @@ def add_recipe_view(request):
                 )
             return redirect(reverse("home"))
     form = RecipeAddForm()
-return render(request, html, {'form': form})
+    return render(request, html, {'form': form})
 
 
 def add_author_view(request):
@@ -100,4 +100,9 @@ def login_view(request):
 
     form = LoginForm()
 
+    return render(request, html, {'form': form})
+
+
+def logut_view(request):
+    logout(request)
     return render(request, html, {'form': form})
